@@ -90,6 +90,7 @@ export class LocationNewComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.otherService.setTitle("Add New Location");
     }
 
 }
