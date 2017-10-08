@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ReviewService } from '../../services/review.service';
+import { OtherService } from '../../services/other.service';
 
 
 @Component({
@@ -14,8 +15,6 @@ import { ReviewService } from '../../services/review.service';
 export class ReviewComponent implements OnInit {
 
     rForm: FormGroup;
-    post: any;                     // A property for our submitted form
-
     id: string;
     name: string = '';
     rating: number;
@@ -26,7 +25,8 @@ export class ReviewComponent implements OnInit {
         private router: Router,
         private fb: FormBuilder,
         private reviewService: ReviewService,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private otherService: OtherService) {
         this.rForm = fb.group({
             'name': [null, Validators.required],
             'rating': [null, Validators.required],
@@ -37,6 +37,7 @@ export class ReviewComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe((params: ParamMap) => {
             this.id = params['id'];
+            this.otherService.setTitle("Add review");
         });
     }
 

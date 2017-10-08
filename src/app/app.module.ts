@@ -11,6 +11,7 @@ import { ReviewComponent } from './components/review/review.component';
 
 import { LocationService } from './services/location.service';
 import { ReviewService } from './services/review.service';
+import { OtherService } from './services/other.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -31,7 +32,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   ],
   providers: [
     LocationService,
-    ReviewService
+    ReviewService,
+    OtherService
   ],
   bootstrap: [AppComponent]
 })

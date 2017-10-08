@@ -3,6 +3,7 @@ import 'rxjs/add/operator/switchMap';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '../../models/Location';
 import { LocationService } from '../../services/location.service';
+import { OtherService } from '../../services/other.service';
 
 
 @Component({
@@ -18,12 +19,17 @@ export class LocationDetailComponent implements OnInit {
     constructor(
         private locationService: LocationService,
         private route: ActivatedRoute,
+        private otherService: OtherService
     ) { }
 
     ngOnInit() {
         this.route.paramMap
             .switchMap((params: ParamMap) => this.locationService.getLocationDetail(params.get('id')))
-            .subscribe(location => this.location = location);
+            .subscribe(location => {
+                this.location = location;
+                this.otherService.setTitle(this.location.name);
+            });
+
     }
 
 }
