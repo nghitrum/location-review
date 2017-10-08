@@ -14,6 +14,8 @@ import { ReviewService } from './services/review.service';
 import { OtherService } from './services/other.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AboutComponent } from './components/about/about.component';
+import { LocationNewComponent } from './components/location-new/location-new.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AppComponent,
     LocationsComponent,
     LocationDetailComponent,
-    ReviewComponent
+    ReviewComponent,
+    AboutComponent,
+    LocationNewComponent
   ],
   imports: [
     BrowserModule,

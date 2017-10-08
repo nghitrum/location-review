@@ -51,7 +51,7 @@ var locationSchema = new mongoose.Schema({
         type: [Number],
         index: "2dsphere"
     },
-    openingTime: [openingTimeSchema],
+    openingTimes: [openingTimeSchema],
     reviews: [reviewSchema]
 });
 

@@ -16,9 +16,7 @@ export class ReviewComponent implements OnInit {
 
     rForm: FormGroup;
     id: string;
-    name: string = '';
-    rating: number;
-    reviewText: string = '';
+    
     titleAlert: string = "All fields are required, please try again.";
 
     constructor(
@@ -42,14 +40,10 @@ export class ReviewComponent implements OnInit {
     }
 
     addReview(post) {
-        this.reviewText = post.reviewText;
-        this.name = post.name;
-        this.rating = post.rating;
-
         var newReview = {
-            author: this.name,
-            rating: this.rating,
-            reviewText: this.reviewText,
+            author: post.name,
+            rating: post.rating,
+            reviewText: post.reviewText,
             createdOn: Date.now()
         }
         this.reviewService.addReview(this.id, newReview).subscribe(data => {

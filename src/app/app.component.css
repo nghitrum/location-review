@@ -3,3 +3,9 @@
         border-radius: 0px;
     }
 }
+
+#add-new:hover {
+    background-color: #c87f0a;
+    border-color: #be780a;
+    color:  #fff;
+}

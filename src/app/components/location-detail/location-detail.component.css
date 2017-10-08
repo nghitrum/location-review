@@ -12,3 +12,11 @@
 .review-container {
     padding-top: 30px;
 }
+
+.stars {
+    line-height: 13.5pt !important;
+}
+
+.img-rounded-new {
+    border-radius: 0 0 6px 6px;
+}

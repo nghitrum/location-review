@@ -11,20 +11,18 @@ import { Router } from '@angular/router';
 })
 export class LocationsComponent implements OnInit {
 
-    formatDistance(distance) {
+    //  Use for front end
+    formatDistance(distance: number) {
         var numDistance, unit;
-        //  console.log(distance);
         if (distance > 1000) {
             numDistance = parseFloat((distance / 1000).toString()).toFixed(1);
             unit = 'km';
         } else {
-            numDistance = parseInt(distance, 10);
+            numDistance = parseInt(distance.toString(), 10);
             unit = 'm';
         }
-        //  console.log(numDistance);
         return numDistance + " " + unit;
     };
-
     locations: Location[];
 
     constructor(private locationService: LocationService) {
