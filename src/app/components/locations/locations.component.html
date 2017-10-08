@@ -1,0 +1,41 @@
+<div class="row page-header">
+    <div class="col-lg-12">
+        <h1>My location list</h1>
+    </div>
+</div>
+<div class="location-list">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="row list-group" *ngFor="let location of locations">
+                <div class="col-xs-12 list-group-item">
+                    <h4>
+                        <a [routerLink]="['/locations', location._id]">{{location.name}}</a>
+                        <small>&nbsp;               
+                            <ng-container *ngFor="let number of [0,1,2,3,4]; let i = index;">
+                                <span *ngIf="i < location.rating" class="glyphicon glyphicon-star"></span>
+                            </ng-container>
+                            <ng-container *ngFor="let number of [0,1,2,3,4]; let i = index;">
+                                    <span *ngIf="i < 5 - location.rating" class="glyphicon glyphicon-star-empty"></span>
+                                </ng-container>                                         
+                        </small>
+                        <span class="label label-info pull-right"> {{formatDistance(location.distance)}}</span>
+                    </h4>
+                    <p class="address">{{location.address}}</p>
+                    <p>
+                        <ng-container *ngFor="let item of location.facilities; let i = index" [attr.data-index]="i">
+                            <span class="label label-warning">
+                                {{ item }}
+                            </span> &nbsp;
+                        </ng-container>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <p class="lead">
+                Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint?
+                Let Loc8r help you find the place you're looking for.
+            </p>
+        </div>
+    </div>
+</div>

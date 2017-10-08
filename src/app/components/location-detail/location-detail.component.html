@@ -1,0 +1,115 @@
+<div *ngIf="location">
+    <div class="row page-header">
+        <div class="col-lg-12">
+            <h1>{{ location.name }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-9">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <ng-container *ngFor="let number of [0,1,2,3,4]; let i = index;">
+                                <span *ngIf="i < location.rating" class="glyphicon glyphicon-star"></span>
+                            </ng-container>
+                            <ng-container *ngFor="let number of [0,1,2,3,4]; let i2 = index;">
+                                <span *ngIf="i2 < 5 - location.rating" class="glyphicon glyphicon-star-empty"></span>
+                            </ng-container>
+
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                {{ location.address }}
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Opening hours</h2>
+                        </div>
+                        <div class="panel-body">
+                            <p *ngFor="let time of location.openingTimes">
+                                {{ time.days }}&#58;
+                                <ng-container *ngIf="time.closed">
+                                    Closed
+                                </ng-container>
+                                <ng-container *ngIf="time.closed == false">
+                                    {{time.opening}} - {{time.closing}}
+                                </ng-container>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Facilities</h2>
+                        </div>
+                        <div class="panel-body">
+                            <ng-container *ngFor="let item of location.facilities; let i = index" [attr.data-index]="i">
+                                <span class="label label-warning">
+                                    {{ item }}
+                                </span>&nbsp;
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 location-map">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Location Map</h2>
+                        </div>
+                        <div class="panel-body">
+                            <img src="http://maps.googleapis.com/maps/api/staticmap?center={{location.coords}}&zoom=17&size=400x350&sensor=false&markers={{location.coords}}&scale=2&key=AIzaSyCCVMFGeM6BBjKKbuegv9qXcH5OBcgt-To"
+                                class="img-responsive img-rounded" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-primary review-panel">
+                        <div class="panel-heading">
+                            <a href="/locations/{{location._id}}/reviews/new" class="btn btn-warning pull-right">Add Review</a>
+                            <h2 class="panel-title">Customer Reviews</h2>
+                        </div>
+                        <div class="panel-body review-container">
+                            <div class="row" *ngFor="let review of location.reviews">
+                                <div class="review panel-default">
+                                    <div class="well well-sm review-header panel-heading">
+                                        <span class="rating">
+                                            <ng-container *ngFor="let number of [0,1,2,3,4]; let i3 = index;">
+                                                <span *ngIf="i3 < review.rating" class="glyphicon glyphicon-star"></span>
+                                        </ng-container>
+                                        <ng-container *ngFor="let number of [0,1,2,3,4]; let i4 = index;">
+                                            <span *ngIf="i4 < 5 - review.rating" class="glyphicon glyphicon-star-empty"></span>
+                                        </ng-container>
+                                        </span>
+                                        <span class="reviewAuthor">
+                                            {{ review.author }}
+                                        </span> 
+                                        &#8212;
+                                        <small class="reviewTimestamp">
+                                            {{ review.createdOn | date: "medium" }}
+                                        </small>
+                                    </div>
+                                    <div class="col-xs-12 panel-body">
+                                        <p>
+                                            {{ review.reviewText }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <p class="lead">
+                {{ location.name }} is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.
+            </p>
+        </div>
+    </div>
+</div>

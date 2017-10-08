@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|PT+Sans+Narrow|Patrick+Hand|Sedgwick+Ave');
+h1, legend {
+    font-family: 'Sedgwick Ave', cursive;
+}
+
+.navbar-brand {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.panel-title {
+    font-family: 'PT Sans Narrow', cursive;
+}
+
+.list-group-item, .panel, .btn, .navbar, .form-horizontal, .alert {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.panel-primary, .list-group-item {
+    border: none;
+}
+
+.glyphicon-star {
+    color: #f39c12;
+}
+
+.page-header {
+    margin-top: 0px !important;
+}

@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="alert alert-dismissible alert-danger" *ngIf="(!rForm.controls['name'].valid && rForm.controls['name'].touched) || (!rForm.controls['rating'].valid && rForm.controls['rating'].touched) || (!rForm.controls['reviewText'].valid && rForm.controls['reviewText'].touched)">
+			<button type="button" class="close" data-dismiss="alert">&times;</button> {{ titleAlert }}
+		</div>
+
+		<form [formGroup]="rForm" (ngSubmit)="addReview(rForm.value)" class="form-horizontal well col-xs-12 col-sm-8 col-sm-offset-2"
+		 id="addreview" action="" method="post" role="form">
+			<legend>Add a new review</legend>
+			<div class="form-group">
+				<label class="col-xs-10 col-sm-1 control-label" for="name">Name</label>
+				<div class="col-xs-12 col-sm-11">
+					<input id="name" class="form-control" name="name" required formControlName="name" placeholder="Your name...">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-10 col-sm-1 control-label" for="rating">Rating</label>
+				<div class="col-xs-12 col-sm-5">
+					<select id="rating" class="form-control input-sm" required name="rating" formControlName="rating">
+						<option value="1" selected>1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-1 control-label" for="reviewText">Review</label>
+				<div class="col-sm-11">
+					<textarea id="reviewText" required formControlName="reviewText" class="form-control" name="reviewText" rows="5">
+
+					</textarea>
+				</div>
+			</div>
+			<button type="submit" [disabled]="!rForm.valid" class="btn btn-primary pull-right">Add My Review</button>
+		</form>
+	</div>
+	<div class=" col-xs-12 col-md-4"></div>
+</div>

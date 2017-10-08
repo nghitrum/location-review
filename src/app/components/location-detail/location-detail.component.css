@@ -1,0 +1,14 @@
+
+.review {
+    display: inline-block;
+    width: 100%;
+}
+
+.review-header {
+    margin: 0px !important;
+    border-radius: 0% !important;
+}
+
+.review-container {
+    padding-top: 30px;
+}
