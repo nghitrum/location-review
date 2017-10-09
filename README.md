@@ -1,27 +1,17 @@
-# LocationReview
+# Location Review
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
+This project is aimed to the Java Based Application course in OAMK.
 
-## Development server
+I made this project based on MEAN Stack which stands for MongoDB, Express JS, Angular, Node JS.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Angular/CLI: 1.4.4
+- Node: 6.11.2
+- Express: 4.15.0
+- Mongo: 3.4.7
+- Tyescript: 2.3.4
 
-## Code scaffolding
+## How to use
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+First, you need to build this app. From the root folder run `ng build`. My suggestion is open a new command window and run `ng build --watch` so whenever something changes in the Angular front-end code, the project builts itself.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Then, run the server by `node server.js`. Again, my suggestion is install `nodemon` package from npm and run it as `nodemon server.js` because it will restart the server every single time it detects your change.
